@@ -1,0 +1,101 @@
+// ============================
+// Part 1: Basics
+// ============================
+
+// Variables, data types & conditionals
+const greetBtn = document.getElementById("greetBtn");
+const nameInput = document.getElementById("nameInput");
+const greeting = document.getElementById("greeting");
+
+greetBtn.addEventListener("click", () => {
+  const name = nameInput.value.trim();
+
+  // Conditional statement
+  if (name) {
+    greeting.textContent = `Hello, ${name}! Welcome to JavaScript.`;
+  } else {
+    greeting.textContent = "Please enter your name!";
+  }
+});
+
+// ============================
+// Part 2: Functions
+// ============================
+
+// Function to calculate sum
+function calculateSum(a, b) {
+  return a + b;
+}
+
+// Function to format result nicely
+function formatResult(num1, num2, sum) {
+  return `The sum of ${num1} and ${num2} is ${sum}.`;
+}
+
+const sumBtn = document.getElementById("sumBtn");
+const sumResult = document.getElementById("sumResult");
+
+sumBtn.addEventListener("click", () => {
+  const num1 = Number(document.getElementById("num1").value);
+  const num2 = Number(document.getElementById("num2").value);
+
+  const sum = calculateSum(num1, num2);
+  sumResult.textContent = formatResult(num1, num2, sum);
+});
+
+// ============================
+// Part 3: Loops
+// ============================
+
+const countdownBtn = document.getElementById("countdownBtn");
+const countdownList = document.getElementById("countdownList");
+
+countdownBtn.addEventListener("click", () => {
+  countdownList.innerHTML = ""; // clear previous results
+
+  // For loop example
+  for (let i = 5; i >= 1; i--) {
+    const li = document.createElement("li");
+    li.textContent = i;
+    countdownList.appendChild(li);
+  }
+
+  // While loop example
+  let i = 0;
+  while (i < 1) {
+    const li = document.createElement("li");
+    li.textContent = "🎉 Blast Off!";
+    countdownList.appendChild(li);
+    i++;
+  }
+});
+
+// ============================
+// Part 4: DOM Manipulation
+// ============================
+
+// Toggle highlight class
+const toggleBtn = document.getElementById("toggleBtn");
+const toggleText = document.getElementById("toggleText");
+
+toggleBtn.addEventListener("click", () => {
+  toggleText.classList.toggle("highlight");
+});
+
+// Add new list items dynamically
+const addItemBtn = document.getElementById("addItemBtn");
+const dynamicList = document.getElementById("dynamicList");
+
+let itemCount = 0;
+
+addItemBtn.addEventListener("click", () => {
+  itemCount++;
+  const li = document.createElement("li");
+  li.textContent = `Dynamic Item ${itemCount}`;
+  dynamicList.appendChild(li);
+});
+
+// DOM Example: Updating existing text dynamically
+document.addEventListener("DOMContentLoaded", () => {
+  document.querySelector("h1").textContent += " ✔️";
+});
